@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,9 +6,7 @@
 		<title>Onlineshop</title>
 	</head>
 	<body>
-		<fmt:setLocale value="en_EN"/>
-		<fmt:bundle basename="message">
-			<fmt:message  key="hallo.welt" />
-		</fmt:bundle>
+		<jsp:plugin code="HalloWeltApplet.class" codebase="." type="applet" width="400" height="400" jreversion="1.7">
+		</jsp:plugin>
 	</body>
 </html>
