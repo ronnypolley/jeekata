@@ -7,6 +7,7 @@ public class Customer implements Serializable {
 	private static final long serialVersionUID = 7400510414063580289L;
 	private String email;
 	private String password;
+	private Long id;
 
 	public Customer() {
 	}
@@ -36,5 +37,13 @@ public class Customer implements Serializable {
 	@Override
 	public String toString() {
 		return "Customer [email=" + email + ", password=" + password + "]";
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 }
