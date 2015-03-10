@@ -2,8 +2,9 @@ package de.java2enterprise.onlineshop;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
@@ -51,14 +52,22 @@ public class RegisterServlet extends HttpServlet {
 
 	private void persist(Customer customer) throws SQLException {
 		Connection connection = ds.getConnection();
-		Statement statement = connection.createStatement();
+		String[] autogenKeys = new String[] { "id" };
+		PreparedStatement statement = connection.prepareStatement(
+				"INSERT INTO customer (email, password) VALUES (?,?)",
+				autogenKeys);
 
-		statement
-		.executeUpdate("INSERT INTO customer (email, password) VALUES ( '"
-				+ customer.getEmail()
-				+ "', '"
-				+ customer.getPassword()
-				+ "')");
+		statement.setString(1, customer.getEmail());
+		statement.setString(2, customer.getPassword());
+
+		statement.executeQuery();
+
+		ResultSet resultSet = statement.getGeneratedKeys();
+
+		while (resultSet.next()) {
+			customer.setId(resultSet.getLong(1));
+		}
+
 		connection.close();
 	}
 

@@ -1,7 +1,7 @@
 <%@include file="header.jspf"%>
 <article>
 	<section>
-		<form action="buy" method="post">
+		<form action="search" method="post">
 			<fieldset>
 				<legend>Suchen</legend>
 				<table>
@@ -20,4 +20,19 @@
 		</form>
 	</section>
 </article>
+<c:forEach var="item" items="${items}">
+	<article>
+		<section>
+			<form action="buy" method="post">
+				<fieldset>
+					<legend>ID: ${item.id}</legend>
+					<h2>${item.title }</h2>
+					<p>${item.description }</p>
+					<p><img src="foto?id=${item.id }" />
+					<p>Preis: ${item.price } Euro</p>
+				</fieldset>
+			</form>
+		</section>
+	</article>
+</c:forEach>
 <%@include file="footer.jspf"%>
