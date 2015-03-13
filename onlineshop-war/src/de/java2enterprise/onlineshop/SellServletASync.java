@@ -18,7 +18,7 @@ import javax.servlet.http.Part;
 /**
  * Servlet implementation class SellServlet
  */
-@WebServlet(urlPatterns = { "/sell" }, asyncSupported = true)
+@WebServlet(urlPatterns = { "/sellasync" }, asyncSupported = true)
 @MultipartConfig(maxFileSize = 1024 * 1024 * 10, maxRequestSize = 1024 * 1024 * 30, fileSizeThreshold = 1024 * 1024, location = "/tmp")
 public class SellServletASync extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class SiginServlet
  */
-@WebServlet("/signin")
+@WebServlet("/signinwithcookies")
 public class SiginServletWithCookie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

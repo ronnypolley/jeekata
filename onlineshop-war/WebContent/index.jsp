@@ -4,4 +4,5 @@
 <%
 // der kommentar kommt auch in den quellcode
 %>
+<p>Eingeloggt: <c:out value="${customer.email }" default="-"></c:out></p>
 <%@include file="footer.jspf"%>
