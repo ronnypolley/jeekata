@@ -85,7 +85,6 @@ public class SellServletASync extends HttpServlet {
 					try {
 						out.close();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
