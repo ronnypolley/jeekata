@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,6 +32,9 @@ public class SearchServlet extends HttpServlet {
 
 	@Resource
 	DataSource ds;
+
+	@PersistenceContext
+	private EntityManager em;
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -70,15 +75,16 @@ public class SearchServlet extends HttpServlet {
 		List<Item> resultList = new ArrayList<Item>();
 
 		while (resultSet.next()) {
-			Item item = new Item(resultSet.getString("title"),
-					resultSet.getString("description"),
-					resultSet.getDouble("price"),
-					resultSet.getLong("seller_id"));
-			item.setBuyerId(resultSet.getLong("buyer_id"));
+			Item item = new Item();
+			item.setTitle(resultSet.getString("title"));
+			item.setDescription(resultSet.getString("description"));
+			item.setPrice(resultSet.getDouble("price"));
+			// resultSet.getLong("seller_id")
+			// item.setBuyerId(resultSet.getLong("buyer_id"));
 			item.setId(resultSet.getLong("id"));
 			Timestamp timestamp = resultSet.getTimestamp("sold");
 			if (timestamp != null) {
-				item.setTraded(new Date(timestamp.getTime()));
+				item.setSold(new Date(timestamp.getTime()));
 			}
 			resultList.add(item);
 		}

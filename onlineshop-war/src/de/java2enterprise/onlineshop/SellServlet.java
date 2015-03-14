@@ -66,15 +66,19 @@ public class SellServlet extends HttpServlet {
 			throw new ServletException(e.getMessage());
 		}
 
-		Object customer = request.getSession().getAttribute("customer");
+		Customer customer = (Customer) request.getSession().getAttribute(
+				"customer");
 
 		if (customer != null) {
 			String title = request.getParameter("title");
 			String description = request.getParameter("description");
 			String price = request.getParameter("price");
 
-			Item item = new Item(title, description, Double.valueOf(price),
-					((Customer) customer).getId());
+			Item item = new Item();
+			item.setTitle(title);
+			item.setDescription(description);
+			item.setPrice(Double.valueOf(price));
+			item.setSeller(customer);
 			item.setFoto(scale(baos.toByteArray()));
 			baos.flush();
 
@@ -128,7 +132,7 @@ public class SellServlet extends HttpServlet {
 		statment.setString(2, item.getDescription());
 		statment.setDouble(3, item.getPrice());
 		statment.setBytes(4, item.getFoto());
-		statment.setLong(5, item.getSellerId());
+		statment.setLong(5, item.getSeller().getId());
 
 		statment.executeUpdate();
 
