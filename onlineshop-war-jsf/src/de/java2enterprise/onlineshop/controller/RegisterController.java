@@ -40,10 +40,11 @@ public class RegisterController implements Serializable {
 			ut.begin();
 			emf.createEntityManager().persist(customer);
 			ut.commit();
+			return "confirm";
 		} catch (Exception e) {
 			e.printStackTrace();
+			return "reject";
 		}
-		return "/register.xhtml";
 	}
 
 }
