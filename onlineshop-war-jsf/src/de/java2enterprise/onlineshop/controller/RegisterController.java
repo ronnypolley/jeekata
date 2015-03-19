@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.annotation.Resource;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManagerFactory;
@@ -40,11 +42,14 @@ public class RegisterController implements Serializable {
 			ut.begin();
 			emf.createEntityManager().persist(customer);
 			ut.commit();
-			return "confirm";
+			FacesContext.getCurrentInstance().addMessage("registerForm",
+					new FacesMessage("Succesfully registered!"));
 		} catch (Exception e) {
-			e.printStackTrace();
-			return "reject";
+			FacesContext.getCurrentInstance().addMessage(
+					"registerForm",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, e
+							.getMessage(), e.getCause().getMessage()));
 		}
+		return "register";
 	}
-
 }
