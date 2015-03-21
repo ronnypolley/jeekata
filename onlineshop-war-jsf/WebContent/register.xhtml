@@ -3,21 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
+	<f:loadBundle var="msg" basename="messages" />
 <h:head>
-	<title><h:outputText value="Onlineshop" /></title>
+	<title><h:outputText value="#{msg['title']}" /></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
 <h:body>
 	<h:form id="registerForm" prependId="false">
 		<h:panelGrid columns="2">
 			<f:facet name="header">
-				<h:outputText value="Registrieren"></h:outputText>
+				<h:outputText value="#{msg['register']}"></h:outputText>
 			</f:facet>
-			<h:outputLabel value="E-Mail:"></h:outputLabel>
-			<h:inputText value="#{registerController.customer.email}"></h:inputText>
-			<h:outputLabel value="Kennwort:"></h:outputLabel>
-			<h:inputText value="#{registerController.customer.password}"></h:inputText>
-			<h:commandButton value="Registrieren" action="#{registerController.persist}"></h:commandButton>
+			<h:outputLabel value="#{msg['email']}:"></h:outputLabel>
+			<h:inputText value="#{registerController.customer.email}" required="true" id="email" label="#{msg['email']}"/>
+			<h:outputLabel />
+			<h:message for="email"/>
+			<h:outputLabel value="#{msg['password']}:"></h:outputLabel>
+			<h:inputText value="#{registerController.customer.password}" required="true" id="password" label="#{msg['password']}"/>
+			<h:outputLabel />
+			<h:message for="password"/>
+			<h:commandButton value="#{msg['register']}" action="#{registerController.persist}" />
 			<h:message for="registerForm" showDetail="false" showSummary="true" errorStyle="color:orange"/>
 		</h:panelGrid>
 	</h:form>
