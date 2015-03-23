@@ -65,7 +65,7 @@ public class SellController implements Serializable {
 		this.item = item;
 	}
 
-	public void persit(SigninController signinController) {
+	public String persist(SigninController signinController) {
 		try {
 			ut.begin();
 			EntityManager em = emf.createEntityManager();
@@ -99,7 +99,7 @@ public class SellController implements Serializable {
 					new FacesMessage(FacesMessage.SEVERITY_WARN,
 							e.getMessage(), e.getCause().getMessage()));
 		}
-
+		return "sell";
 	}
 
 	private byte[] scale(byte[] byteArray) throws IOException {
