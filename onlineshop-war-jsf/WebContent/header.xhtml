@@ -16,5 +16,9 @@
 		<h:link outcome="search" value="#{msg['search']}" />
 		<br />
 	</nav>
+	<h:form>
+		<h:commandButton image="#{resource['default:img/us.gif']}" action="#{localeController.change('en')}" />
+		<h:commandButton image="#{resource['default:img/de.gif']}" action="#{localeController.change('de')}" />
+	</h:form>
 </header>
 </html>

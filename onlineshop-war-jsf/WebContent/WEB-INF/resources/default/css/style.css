@@ -7,7 +7,7 @@
 }
 
 body > header {
-	background: url("#{resource['img:tau.jpg']}");
+	background: url("#{resource['default:img/tau.jpg']}");
 	border-radius: 10px;
 	box-shadow: 5px 5px 9px gray;
 }

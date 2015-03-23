@@ -40,7 +40,7 @@ public class ImageServlet extends HttpServlet {
 		try {
 			Query query = emf.createEntityManager().createQuery(
 					"SELECT i.foto FROM Item i WHERE i.id = :id");
-			query.setParameter("id", id);
+			query.setParameter("id", Long.valueOf(id));
 
 			byte[] foto = (byte[]) query.getSingleResult();
 			response.reset();
