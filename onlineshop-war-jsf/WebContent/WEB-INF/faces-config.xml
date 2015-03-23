@@ -4,5 +4,41 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
+	<navigation-rule>
+		<display-name>register/register.xhtml</display-name>
+		<from-view-id>/register/register.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{conversationRegisterController.step1}</from-action>
+			<from-outcome>register1</from-outcome>
+			<to-view-id>/register/register1.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>register/register1.xhtml</display-name>
+		<from-view-id>/register/register1.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{conversationRegisterController.step2}</from-action>
+			<from-outcome>register2</from-outcome>
+			<to-view-id>/register/register2.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>register/register2.xhtml</display-name>
+		<from-view-id>/register/register2.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{conversationRegisterController.persist}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/register/confirm.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>register/register2.xhtml</display-name>
+		<from-view-id>/register/register2.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{conversationRegisterController.persist}</from-action>
+			<from-outcome>failure</from-outcome>
+			<to-view-id>/register/reject.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>

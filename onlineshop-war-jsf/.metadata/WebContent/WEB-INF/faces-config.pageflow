@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14263702525750" configfile="/onlineshop-war-jsf/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14263702525750" configfile="/onlineshop-war-jsf/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="register/register2.xhtml" x="810" y="288" id="pf14271375259974" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf14271375259975 pf14271375259976" inlinks="pf142713791195017" path="/register/register2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="register/reject.xhtml" x="1082" y="418" id="pf14271375259977" inlinks="pf14271375259976" path="/register/reject.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="register/confirm.xhtml" x="1112" y="211" id="pf14271375259978" inlinks="pf14271375259975" path="/register/confirm.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="register/register1.xhtml" id="pf142713769417012" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" outlinks="pf142713791195017" inlinks="pf142713795508918" path="/register/register1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="register/register.xhtml" id="pf142713795508919" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf142713795508918" path="/register/register.xhtml"/>
+  <links id="pf14271375259975" target="pf14271375259978" source="pf14271375259974" outcome="success" fromaction="#{conversationRegisterController.persist}"/>
+  <links id="pf14271375259976" target="pf14271375259977" source="pf14271375259974" outcome="failure" fromaction="#{conversationRegisterController.persist}"/>
+  <links id="pf142713791195017" target="pf14271375259974" source="pf142713769417012" outcome="register2" fromaction="#{conversationRegisterController.step2}"/>
+  <links id="pf142713795508918" target="pf142713769417012" source="pf142713795508919" outcome="register1" fromaction="#{conversationRegisterController.step1}"/>
+</pageflow:Pageflow>

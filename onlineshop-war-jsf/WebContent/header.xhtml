@@ -1,19 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
-<header>
+<header xmlns:h="http://java.sun.com/jsf/html">
 	<hgroup>
-		<H1 class="title">
+		<h1 class="title">
 			<h:outputText value="#{msg['title']}" />
-		</H1>
+		</h1>
 	</hgroup>
 	<nav>
-		<h:link outcome="index" value="#{msg['home']}" />
-		<h:link outcome="register" value="#{msg['register']}" />
-		<h:link outcome="signin" value="#{msg['signin']}" />
-		<h:link outcome="signout" value="#{msg['signout']}" />
-		<h:link outcome="sell" value="#{msg['sell']}" />
-		<h:link outcome="search" value="#{msg['search']}" />
+		<h:link outcome="/index.xhtml" value="#{msg['home']}" />
+		<h:link outcome="/register/register.xhtml" value="#{msg['register']}" />
+		<!-- <h:link outcome="register" value="#{msg['register']}" /> -->
+		<h:link outcome="/signin" value="#{msg['signin']}" />
+		<h:link outcome="/signout" value="#{msg['signout']}" />
+		<h:link outcome="/sell" value="#{msg['sell']}" />
+		<h:link outcome="/search" value="#{msg['search']}" />
 		<br />
 	</nav>
 	<h:form>
@@ -21,4 +19,3 @@
 		<h:commandButton image="#{resource['default:img/de.gif']}" action="#{localeController.change('de')}" />
 	</h:form>
 </header>
-</html>
