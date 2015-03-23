@@ -15,11 +15,11 @@
 	    		</f:facet>
 
 	    		<h:outputLabel value="#{msg['email']}" />
-	    		<h:inputText id="email" value="#{signinController.email" />
+	    		<h:inputText id="email" value="#{signinController.email}" />
 	    		<h:message for="email" />
 
 	    		<h:outputLabel value="#{msg['password']}" />
-	    		<h:inputSecret id="password" value="#{signinController.password" />
+	    		<h:inputSecret id="password" value="#{signinController.password}" />
 	    		<h:message for="password" />
 
 	    		<h:commandButton id="signin" action="#{signinController.find()}" value="#{msg['signin']}" />
