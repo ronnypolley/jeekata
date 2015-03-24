@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+	<flow-definition id="flowregister">
+		<start-node>flowregister_start</start-node>
+		<view id="flowregister_start">
+			<vdl-document>/flowregister/flowregister.xhtml</vdl-document>
+		</view>
+
+		<flow-return id="flowregister_return">
+			<from-outcome>/index</from-outcome>
+		</flow-return>
+
+		<navigation-rule>
+			<from-view-id>/flowregister/flowregister.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>register1</from-outcome>
+				<to-view-id>/flowregister/register1.xhtml</to-view-id>
+			</navigation-case>
+		</navigation-rule>
+		<navigation-rule>
+			<from-view-id>/flowregister/register1.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>register2</from-outcome>
+				<to-view-id>/flowregister/register2.xhtml</to-view-id>
+			</navigation-case>
+		</navigation-rule>
+		<navigation-rule>
+			<from-view-id>/flowregister/register2.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>success</from-outcome>
+				<to-view-id>/flowregister/confirm.xhtml</to-view-id>
+			</navigation-case>
+		</navigation-rule>
+		<navigation-rule>
+			<from-view-id>/flowregister/register2.xhtml</from-view-id>
+			<navigation-case>
+				<from-outcome>failure</from-outcome>
+				<to-view-id>/flowregister/reject.xhtml</to-view-id>
+			</navigation-case>
+		</navigation-rule>
+	</flow-definition>
+
+</faces-config>
