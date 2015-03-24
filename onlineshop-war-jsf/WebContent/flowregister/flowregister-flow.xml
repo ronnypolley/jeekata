@@ -17,6 +17,7 @@
 		<navigation-rule>
 			<from-view-id>/flowregister/flowregister.xhtml</from-view-id>
 			<navigation-case>
+				<from-action>#{flowRegisterController.step1}</from-action>
 				<from-outcome>register1</from-outcome>
 				<to-view-id>/flowregister/register1.xhtml</to-view-id>
 			</navigation-case>

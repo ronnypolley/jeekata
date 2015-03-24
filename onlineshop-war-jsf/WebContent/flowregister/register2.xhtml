@@ -13,14 +13,14 @@
 	    		<h:outputLabel for="password" value="#{msg['password']}" />
 
 	    		<h:panelGroup>
-	    			<h:inputSecret id="password" label="#{msg['password']}" value="#{conversationRegisterController.customer.password}" >
+	    			<h:inputSecret id="password" label="#{msg['password']}" value="#{flowRegisterController.customer.password}" >
 	    				<f:validateLength for="password" minimum="6" maximum="10" />
 	    			</h:inputSecret>
 	    			<h:message for="password" />
 	    		</h:panelGroup>
 
-	    		<h:commandButton id="step1" action="#{conversationRegisterController.step1}" value="#{msg['step']} 1" />
-	    		<h:commandButton id="register" action="#{conversationRegisterController.persist}" value="#{msg['register']}" />
+	    		<h:commandButton id="step1" action="#{flowRegisterController.step1}" value="#{msg['step']} 1" />
+	    		<h:commandButton id="register" action="#{flowRegisterController.persist}" value="#{msg['register']}" />
 	    	</h:panelGrid>
 	    </h:form>
 	</ui:define>

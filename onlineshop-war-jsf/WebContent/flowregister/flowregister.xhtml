@@ -9,8 +9,8 @@
 	    		<f:facet name="header">
 	    			<h:outputText value="#{msg['register']}" />
 	    		</f:facet>
-	    		<h:commandButton id="cancel" action="/index.xhtml" value="#{msg['cancel']}" />
-	    		<h:commandButton id="step1" action="#{conversationRegisterController.step1}" value="#{msg['step']} 1" />
+	    		<h:commandButton id="cancel" action="/index" value="#{msg['cancel']}" />
+	    		<h:commandButton id="step1" action="#{flowRegisterController.step1}" value="#{msg['step']} 1" />
 	    	</h:panelGrid>
 	    </h:form>
 	</ui:define>

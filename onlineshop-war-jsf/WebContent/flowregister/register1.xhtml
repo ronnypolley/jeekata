@@ -13,12 +13,12 @@
 	    		<h:outputLabel for="email" value="#{msg['email']}" />
 
 	    		<h:panelGroup>
-	    			<h:inputText id="email" label="#{msg['email']}" value="#{conversationRegisterController.customer.email}" maxlength="40" size="40" />
+	    			<h:inputText id="email" label="#{msg['email']}" value="#{flowRegisterController.customer.email}" maxlength="40" size="40" />
 	    			<h:message for="email" />
 	    		</h:panelGroup>
 
-	    		<h:commandButton id="start" action="/register/register.xhtml" value="Start" />
-	    		<h:commandButton id="step2" action="#{conversationRegisterController.step2}" value="#{msg['step']} 2" />
+	    		<h:commandButton id="start" action="#{flowRegisterController.start}" value="Start" />
+	    		<h:commandButton id="step2" action="#{flowRegisterController.step2}" value="#{msg['step']} 2" />
 	    	</h:panelGrid>
 	    </h:form>
 	</ui:define>
